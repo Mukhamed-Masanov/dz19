@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dz19</title>
+</head>
+<body>
+<script>
+    //1
+    //     let num1 = +prompt('Enter a number')
+    //     let factorial = (num1) => {
+    //         if (isNaN(num1) || num1 < 0) {
+    //             return `Введите корректное значение`
+    //         } else if (num1 === 0) {
+    //             return 'Факториал 0 = 1'
+    //         }
+    //
+    //         if (num1 === 1) {
+    //             return 1;
+    //         } else {
+    //             return num1 * factorial(num1 - 1);
+    //         }
+    //     }
+    //     alert(factorial(num1));
+    //
+    //  2
+    //Функция для вывода в прямом порядке
+    // let startPoint = +prompt('Введите точку отсчета')
+    // let endPoint = +prompt('Введите точку конца')
+    // let getStrOrder = (startPoint, endPoint) => {
+    //     if (isNaN(startPoint) || isNaN(endPoint)) {
+    //         alert('Введите корректные значения')
+    //     } else if (startPoint > endPoint) {
+    //         alert('Точка отсчета не может быть больше конечной точки')
+    //     } else {
+    //         document.write(`${startPoint} <br>`);
+    //         if (startPoint === endPoint) {
+    //             return endPoint
+    //         } else {
+    //             return getStrOrder(startPoint + 1, endPoint)
+    //         }
+    //     }
+    // }
+    // getStrOrder(startPoint, endPoint);
+
+    // Функция для вывода в обратном порядке
+    // let getReverseOrder = (startPoint, endPoint) => {
+    //     if (isNaN(startPoint) || isNaN(endPoint)) {
+    //         alert('Введите корректные значения')
+    //     } else if (startPoint > endPoint) {
+    //         alert('Точка отсчета не может быть больше конечной точки')
+    //     } else {
+    //         document.write(`${endPoint} <br>`);
+    //         if (startPoint === endPoint) {
+    //             return startPoint
+    //         } else {
+    //             return getReverseOrder(startPoint, endPoint - 1)
+    //         }
+    //     }
+    // }
+    // getReverseOrder(startPoint, endPoint);
+
+
+    //   3
+    let num2 = prompt('Введите число')
+    // let makeBackwards = num2 => num2.split('').reverse().join('');
+    // alert(makeBackwards(num2));
+    let getBackwardsNum = num2 => {
+        const array1 = num2.split('').pop()
+        const array3 = [];
+        const array2 = array3.push(array1);
+        if (array1 === undefined) {
+            return array1;
+        } else {
+            return getBackwardsNum();
+        }
+    }
+    alert(getBackwardsNum(num2));
+</script>
+</body>
+</html>
