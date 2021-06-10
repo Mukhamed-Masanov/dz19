@@ -10,75 +10,118 @@
 <body>
 <script>
     //1
-    //     let num1 = +prompt('Enter a number')
-    //     let factorial = (num1) => {
-    //         if (isNaN(num1) || num1 < 0) {
-    //             return `Введите корректное значение`
-    //         } else if (num1 === 0) {
-    //             return 'Факториал 0 = 1'
-    //         }
-    //
-    //         if (num1 === 1) {
-    //             return 1;
-    //         } else {
-    //             return num1 * factorial(num1 - 1);
-    //         }
-    //     }
-    //     alert(factorial(num1));
-    //
-    //  2
-    //Функция для вывода в прямом порядке
-    // let startPoint = +prompt('Введите точку отсчета')
-    // let endPoint = +prompt('Введите точку конца')
-    // let getStrOrder = (startPoint, endPoint) => {
-    //     if (isNaN(startPoint) || isNaN(endPoint)) {
-    //         alert('Введите корректные значения')
-    //     } else if (startPoint > endPoint) {
-    //         alert('Точка отсчета не может быть больше конечной точки')
-    //     } else {
-    //         document.write(`${startPoint} <br>`);
-    //         if (startPoint === endPoint) {
-    //             return endPoint
-    //         } else {
-    //             return getStrOrder(startPoint + 1, endPoint)
-    //         }
-    //     }
-    // }
-    // getStrOrder(startPoint, endPoint);
+    let num1 = +prompt('Enter a number')
+    let factorial = (num1) => {
+        if (isNaN(num1) || num1 < 0) {
+            return `Введите корректное значение`
+        } else if (num1 === 0) {
+            return 'Факториал 0 = 1'
+        }
 
-    // Функция для вывода в обратном порядке
-    // let getReverseOrder = (startPoint, endPoint) => {
-    //     if (isNaN(startPoint) || isNaN(endPoint)) {
-    //         alert('Введите корректные значения')
-    //     } else if (startPoint > endPoint) {
-    //         alert('Точка отсчета не может быть больше конечной точки')
-    //     } else {
-    //         document.write(`${endPoint} <br>`);
-    //         if (startPoint === endPoint) {
-    //             return startPoint
-    //         } else {
-    //             return getReverseOrder(startPoint, endPoint - 1)
-    //         }
-    //     }
-    // }
-    // getReverseOrder(startPoint, endPoint);
-
-
-    //   3
-    let num2 = prompt('Введите число')
-    // let makeBackwards = num2 => num2.split('').reverse().join('');
-    // alert(makeBackwards(num2));
-    let getBackwardsNum = num2 => {
-        const array1 = num2.split('').pop()
-        const array3 = [];
-        const array2 = array3.push(array1);
-        if (array1 === undefined) {
-            return array1;
+        if (num1 === 1) {
+            return 1;
         } else {
-            return getBackwardsNum();
+            return num1 * factorial(num1 - 1);
+        }
+    }
+    alert(factorial(num1));
+
+    // 2
+    //Функция для вывода в прямом порядке
+    let startPoint = +prompt('Введите точку отсчета')
+    let endPoint = +prompt('Введите точку конца')
+    let getStrOrder = (startPoint, endPoint) => {
+        if (isNaN(startPoint) || isNaN(endPoint)) {
+            alert('Введите корректные значения')
+        } else if (startPoint > endPoint) {
+            alert('Точка отсчета не может быть больше конечной точки')
+        } else {
+            document.write(`${startPoint} <br>`);
+            if (startPoint === endPoint) {
+                return endPoint
+            } else {
+                return getStrOrder(startPoint + 1, endPoint)
+            }
+        }
+    }
+    getStrOrder(startPoint, endPoint);
+
+    //Функция для вывода в обратном порядке
+    let getReverseOrder = (startPoint, endPoint) => {
+        if (isNaN(startPoint) || isNaN(endPoint)) {
+            alert('Введите корректные значения')
+        } else if (startPoint > endPoint) {
+            alert('Точка отсчета не может быть больше конечной точки')
+        } else {
+            document.write(`${endPoint} <br>`);
+            if (startPoint === endPoint) {
+                return startPoint
+            } else {
+                return getReverseOrder(startPoint, endPoint - 1)
+            }
+        }
+    }
+    getReverseOrder(startPoint, endPoint);
+    
+    // 3
+    let num2 = prompt('Введите число')
+    let getBackwardsNum = num2 => {
+        if (isNaN(+num2)) {
+            return 'Введено неккорктное значение'
+        }
+        if (num2 < 0) {
+            if (num2 === '') {
+                return '';
+            } else {
+                return -(num2.slice(-1)) + getBackwardsNum(num2.slice(1, -1));
+            }
+        } else {
+            if (num2 === '') {
+                return '';
+            } else {
+                return num2.slice(-1) + getBackwardsNum(num2.slice(0, -1));
+            }
         }
     }
     alert(getBackwardsNum(num2));
+
+    //   4
+    num3 = prompt('Введите число')
+    let countSum = num3 => {
+        if (isNaN(+num3)) {
+            return 'Введено неккоректное значение'
+        }
+        if (num3 < 0) {
+            if (num3 === '') {
+                return ''
+            } else {
+                return +num3.slice(-1) + +countSum(num3.slice(1, -1))
+            }
+        } else {
+            if (num3 === '') {
+                return ''
+            } else {
+                return +num3.slice(-1) + +countSum(num3.slice(0, -1))
+            }
+        }
+    }
+    alert(countSum(num3))
+
+    //5
+    let brackets = +prompt('Введите какое количество вложенных скобок вы хотите получить')
+    let f = brackets => {
+        if (brackets < 0 || isNaN(brackets)) {
+            return 'Введено неккоректное значение'
+        }
+        let c = '('
+        let d = ')'
+        if (brackets === 0) {
+            return '';
+        } else {
+            return c + f(brackets - 1) + d
+        }
+    }
+    alert(f(brackets))
 </script>
 </body>
 </html>
