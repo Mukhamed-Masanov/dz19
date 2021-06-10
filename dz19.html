@@ -24,47 +24,13 @@
             return num1 * factorial(num1 - 1);
         }
     }
-    alert(factorial(num1));
+    alert( factorial(num1));
 
-    // 2
-    //Функция для вывода в прямом порядке
-    let startPoint = +prompt('Введите точку отсчета')
-    let endPoint = +prompt('Введите точку конца')
-    let getStrOrder = (startPoint, endPoint) => {
-        if (isNaN(startPoint) || isNaN(endPoint)) {
-            alert('Введите корректные значения')
-        } else if (startPoint > endPoint) {
-            alert('Точка отсчета не может быть больше конечной точки')
-        } else {
-            document.write(`${startPoint} <br>`);
-            if (startPoint === endPoint) {
-                return endPoint
-            } else {
-                return getStrOrder(startPoint + 1, endPoint)
-            }
-        }
-    }
-    getStrOrder(startPoint, endPoint);
+    //ВТОРАЯ ЗАДАЧА РЕШЕНА С САМОМ КОНЦЕ
+    //ВТОРАЯ ЗАДАЧА РЕШЕНА С САМОМ КОНЦЕ
 
-    //Функция для вывода в обратном порядке
-    let getReverseOrder = (startPoint, endPoint) => {
-        if (isNaN(startPoint) || isNaN(endPoint)) {
-            alert('Введите корректные значения')
-        } else if (startPoint > endPoint) {
-            alert('Точка отсчета не может быть больше конечной точки')
-        } else {
-            document.write(`${endPoint} <br>`);
-            if (startPoint === endPoint) {
-                return startPoint
-            } else {
-                return getReverseOrder(startPoint, endPoint - 1)
-            }
-        }
-    }
-    getReverseOrder(startPoint, endPoint);
-    
     // 3
-    let num2 = prompt('Введите число')
+    let num2 = prompt('Введите число которое хотели бы перевернуть')
     let getBackwardsNum = num2 => {
         if (isNaN(+num2)) {
             return 'Введено неккорктное значение'
@@ -86,7 +52,7 @@
     alert(getBackwardsNum(num2));
 
     //   4
-    num3 = prompt('Введите число')
+    num3 = prompt('Введите число из суммы чисел которого хотели бы получить сумму')
     let countSum = num3 => {
         if (isNaN(+num3)) {
             return 'Введено неккоректное значение'
@@ -122,6 +88,44 @@
         }
     }
     alert(f(brackets))
+
+    // 2
+    //Функция для вывода в прямом порядке
+    let startPoint = +prompt('Введите точку отсчета')
+    let endPoint = +prompt('Введите точку конца')
+    
+    let getStrOrder = (startPoint, endPoint) => {
+        if (isNaN(startPoint) || isNaN(endPoint)) {
+            alert('Введите корректные значения')
+        } else if (startPoint > endPoint) {
+            alert('Точка отсчета не может быть больше конечной точки')
+        } else {
+            document.write(`${startPoint} <br>`);
+            if (startPoint === endPoint) {
+                return endPoint
+            } else {
+                return getStrOrder(startPoint + 1, endPoint)
+            }
+        }
+    }
+    getStrOrder(startPoint, endPoint);
+
+   // Функция для вывода в обратном порядке
+   //  let getReverseOrder = (startPoint, endPoint) => {
+   //      if (isNaN(startPoint) || isNaN(endPoint)) {
+   //          alert('Введите корректные значения')
+   //      } else if (startPoint > endPoint) {
+   //          alert('Точка отсчета не может быть больше конечной точки')
+   //      } else {
+   //          document.write(`${endPoint} <br>`);
+   //          if (startPoint === endPoint) {
+   //              return startPoint
+   //          } else {
+   //              return getReverseOrder(startPoint, endPoint - 1)
+   //          }
+   //      }
+   //  }
+   //  getReverseOrder(startPoint, endPoint);
 </script>
 </body>
 </html>
